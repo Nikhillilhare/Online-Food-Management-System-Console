@@ -4,15 +4,21 @@ import java.util.Scanner;
 
 //This is routing file to route to feature wise which features should be selected the endusers.
 public class AppController {
-    CustomerController controller = new CustomerController();
+    private CustomerController customerController;
+    public AppController(){
+        customerController = new CustomerController();
+    }
     public void performAction(int choice, Scanner sc){
         switch (choice){
+            case 0:
+                System.out.println("Thank you for Visit");
+                break;
             case 1:
-                controller.registerCustomer(sc);
+                CustomerController.registerCustomer(sc);
                 break;
 
             case 2:
-                controller.loginCustomer(sc);
+                CustomerController.loginCustomer(sc);
                 break;
 
             default:
