@@ -8,17 +8,18 @@ public class CustomerService {
     private int customerId=1;
 
     //Register New Customer
-    public boolean registerCustomer(String name, String email, String mobile,
+    public String registerCustomer(String name, String email, String mobile,
                                     String password){
+
         //First to check Duplicate email found or not
         Customer existingEmail = customerRepository.findCustomerByEmail(email);
         if (existingEmail != null){
-            return false;
+            return "Email Already Registered";
         }
 
         Customer customer = new Customer(customerId,name,email,mobile,password);
         customerRepository.addCustomer(customer);
         customerId++;
-        return true;
+        return "Customer Registered Successfully";
     }
 }
