@@ -1,5 +1,6 @@
 package controller;
 
+import model.Customer;
 import service.serviceConsole.CustomerService;
 import util.Validation;
 
@@ -50,5 +51,32 @@ public class CustomerController {
 
         String register = customerService.registerCustomer(name,email,mobile,password);
         System.out.println(register);
+    }
+
+    public void loginCustomer(Scanner sc){
+        String email;
+        do {
+            System.out.print("Enter Email: ");
+            email = sc.nextLine();
+            if(!Validation.isValidEmail(email)){
+                System.out.println("Invalid Email");
+            }
+        }while (!Validation.isValidEmail(email));
+
+       String password;
+       do {
+           System.out.print("Enter Password: ");
+           password = sc.nextLine();
+           if(!Validation.isValidPassword(password)){
+               System.out.println("Invalid Password");
+           }
+       }while (!Validation.isValidPassword(password));
+
+        String customer = customerService.loginCustomer(email,password);
+        if (customer !=null){
+            System.out.println("Login Successful!");
+        }else{
+            System.out.println("Something Wrong Email or Password");
+        }
     }
 }
