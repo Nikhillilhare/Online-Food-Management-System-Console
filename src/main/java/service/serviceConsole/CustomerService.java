@@ -22,4 +22,12 @@ public class CustomerService {
         customerId++;
         return "Customer Registered Successfully";
     }
+
+   public String loginCustomer(String email, String password){
+        Customer customer = customerRepository.findCustomerByEmailAndPassword(email,password);
+        if (customer == null){
+            return "Invalid Email or Password.";
+        }
+        return "Login Successfully";
+   }
 }

@@ -23,6 +23,14 @@ public class CustomerRepository {
         return null;
     }
 
+    //Login the Customer
+    public Customer findCustomerByEmailAndPassword(String email, String password){
+        for (Customer customer : customers){
+            if (customer.getEmail().equalsIgnoreCase(email)
+            && customer.getPassword().equals(password)) return customer;
+        }
+        return null;
+    }
     //Get All Customer At a Time
     public ArrayList<Customer> getAllCustomers(){
         return customers;

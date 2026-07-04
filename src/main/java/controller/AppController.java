@@ -14,11 +14,11 @@ public class AppController {
                 System.out.println("Thank you for Visit");
                 break;
             case 1:
-                CustomerController.registerCustomer(sc);
+                customerController.registerCustomer(sc);
                 break;
 
             case 2:
-                CustomerController.loginCustomer(sc);
+                customerController.loginCustomer(sc);
                 break;
 
             default:
