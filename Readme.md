@@ -31,6 +31,7 @@ OnlineFoodOrderingSystem
 │      FoodItem.java│
 ├── controller
 │   CustomerController.java
+    FoodController.java
 ├── service
 │     ├── serviceconsole
             CustomerService.java
@@ -95,6 +96,9 @@ MySQL Database (JDBC)
 * Password Validation
 * Clean Layered Architecture
 
+## Food Items Management
+
+* Display All Food Items
 ---
 
 # ⏳ Features In Progress
@@ -105,18 +109,15 @@ Completed Components
 * FoodItem Model
 * Food Repository
 * Food Service
+* Food Controller
 
-Upcoming
-- Display All Food Items
-- Search Food By Name
-- Filter Food By Category
+
 ---
 
 # 📌 Planned Features
 
 ## Food Menu
 
-* Display All Food Items
 * Search Food By Name
 * Filter Food By Category
 
@@ -176,6 +177,7 @@ Upcoming
 1. Register Customer
 2. Login
 3. View Profile
+4. Display All FoodItems
 
 
 ```

@@ -2,6 +2,7 @@ package main;
 
 
 import controller.CustomerController;
+import controller.FoodController;
 
 
 import java.util.Scanner;
@@ -18,10 +19,12 @@ public class main {
             System.out.println("1. Register Customer");
             System.out.println("2. Login");
             System.out.println("3. View Profile");
+            System.out.println("4. Display Food Menu");
             System.out.print("Enter Choice : ");
             choice = sc.nextInt();
             sc.nextLine();
             CustomerController customerController = new CustomerController();
+            FoodController foodController = new FoodController();
             switch (choice){
                 case 0:
                     System.out.println("Thanks For Visiting");
@@ -35,6 +38,9 @@ public class main {
 
                 case 3:
                     customerController.viewCustomerProfile();
+                    break;
+                case 4:
+                    foodController.displayAllFoodItems();
                     break;
                 default:
                     System.out.println("Invalid Choice");
