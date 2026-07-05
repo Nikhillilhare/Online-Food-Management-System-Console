@@ -21,4 +21,11 @@ public class FoodService {
         return foodRepository.searchFoodByName(foodName);
 
     }
+
+    // Filter Food By Category
+    public ArrayList<FoodItem> filterFoodByCategory(String category) {
+
+        return foodRepository.filterFoodByCategory(category);
+
+    }
 }

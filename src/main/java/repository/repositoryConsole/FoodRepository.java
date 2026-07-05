@@ -39,4 +39,21 @@ public class FoodRepository {
 
         return null;
     }
+
+    // Filter Food By Category
+    public ArrayList<FoodItem> filterFoodByCategory(String category) {
+
+        ArrayList<FoodItem> filteredFoodItems = new ArrayList<>();
+
+        for (FoodItem food : foodItems) {
+
+            if (food.getCategory().equalsIgnoreCase(category)) {
+                filteredFoodItems.add(food);
+            }
+
+        }
+
+        return filteredFoodItems;
+
+    }
 }

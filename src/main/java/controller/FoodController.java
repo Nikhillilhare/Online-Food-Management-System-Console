@@ -25,7 +25,7 @@ public class FoodController {
         }
 
         System.out.println("\n====================== FOOD MENU ======================");
-
+        System.out.println();
         System.out.printf("%-8s %-20s %-15s %-10s %-12s%n",
                 "ID", "Food Name", "Category", "Price", "Available");
 
@@ -45,7 +45,7 @@ public class FoodController {
     // Search Food By Name
     public void searchFoodByName(Scanner sc) {
 
-        System.out.print("\nEnter Food Name : ");
+        System.out.print("Enter Food Name : ");
         String foodName = sc.nextLine();
 
         FoodItem food = foodService.searchFoodByName(foodName);
@@ -57,13 +57,49 @@ public class FoodController {
             return;
         }
 
-        System.out.println("\n========== FOOD DETAILS ==========");
+        System.out.println("========== FOOD DETAILS ==========");
 
         System.out.println("Food ID    : " + food.getFoodId());
         System.out.println("Food Name  : " + food.getFoodName());
         System.out.println("Category   : " + food.getCategory());
         System.out.println("Price      : ₹" + food.getPrice());
         System.out.println("Available  : " + (food.isAvailable() ? "Yes" : "No"));
+
+    }
+
+    // Filter Food By Category
+    public void filterFoodByCategory(Scanner sc) {
+
+        System.out.print("Enter Category : ");
+        String category = sc.nextLine();
+
+        ArrayList<FoodItem> filteredFoodItems =
+                foodService.filterFoodByCategory(category);
+
+        if (filteredFoodItems.isEmpty()) {
+
+            System.out.println("\nNo Food Items Found.");
+
+            return;
+        }
+
+        System.out.println("================ FILTERED FOOD MENU ================");
+
+        System.out.printf("%-8s %-20s %-15s %-10s %-12s%n",
+                "ID", "Food Name", "Category", "Price", "Available");
+
+        System.out.println("--------------------------------------------------------------");
+
+        for (FoodItem food : filteredFoodItems) {
+
+            System.out.printf("%-8d %-20s %-15s ₹%-9.2f %-12s%n",
+                    food.getFoodId(),
+                    food.getFoodName(),
+                    food.getCategory(),
+                    food.getPrice(),
+                    food.isAvailable() ? "Yes" : "No");
+
+        }
 
     }
 }

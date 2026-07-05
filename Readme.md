@@ -99,6 +99,8 @@ MySQL Database (JDBC)
 ## Food Items Management
 
 * Display All Food Items
+* Search Food By Name
+* Filter Food By Category
 ---
 
 # ⏳ Features In Progress
@@ -115,11 +117,6 @@ Completed Components
 ---
 
 # 📌 Planned Features
-
-## Food Menu
-
-* Search Food By Name
-* Filter Food By Category
 
 ### Order Management
 
@@ -178,7 +175,7 @@ Completed Components
 2. Login
 3. View Profile
 4. Display All FoodItems
-
+5. Search Food By Name
 
 ```
 
@@ -220,7 +217,7 @@ This ensures that every feature is fully tested before moving to the next featur
 | Module              | Status |
 |---------------------|--------|
 | Customer Management | ✅ Completed |
-| Food Menu           | 🔄 In Progress |
+| Food Menu           | ✅ Completed |
 | Order Management    | ⏳ Pending |
 | Billing             | ⏳ Pending |
 | Order History       | ⏳ Pending |

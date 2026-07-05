@@ -21,6 +21,7 @@ public class main {
             System.out.println("3. View Profile");
             System.out.println("4. Display Food Menu");
             System.out.println("5. Search Food By Name");
+            System.out.println("6. Filter Food By Category");
             System.out.print("Enter Choice : ");
             choice = sc.nextInt();
             sc.nextLine();
@@ -45,6 +46,9 @@ public class main {
                     break;
                 case 5:
                     foodController.searchFoodByName(sc);
+                    break;
+                case 6:
+                    foodController.filterFoodByCategory(sc);
                     break;
                 default:
                     System.out.println("Invalid Choice");
