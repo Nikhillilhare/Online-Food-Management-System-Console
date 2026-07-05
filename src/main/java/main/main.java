@@ -32,6 +32,10 @@ public class main {
                 case 2:
                     customerController.loginCustomer(sc);
                     break;
+
+                case 3:
+                    customerController.viewCustomerProfile();
+                    break;
                 default:
                     System.out.println("Invalid Choice");
             }

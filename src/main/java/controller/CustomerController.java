@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class CustomerController {
     private CustomerService customerService;
+    private Customer loggedCustomer;
     public CustomerController(){
         customerService = new CustomerService();
     }
@@ -78,5 +79,17 @@ public class CustomerController {
         }else{
             System.out.println("Something Wrong Email or Password");
         }
+
+    }
+    public void viewCustomerProfile(){
+        if (loggedCustomer == null){
+            System.out.println("Please Login First");
+            return;
+        }
+        System.out.println("\n================= CUSTOMER PROFILE =================");
+        System.out.println("Customer ID: "+loggedCustomer.getCustomerId());
+        System.out.println("Customer Name: "+loggedCustomer.getName());
+        System.out.println("Email: "+loggedCustomer.getEmail());
+        System.out.println("Mobile: "+loggedCustomer.getMobile());
     }
 }
