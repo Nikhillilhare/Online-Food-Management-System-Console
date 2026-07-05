@@ -25,4 +25,18 @@ public class FoodRepository {
     public ArrayList<FoodItem> getAllFoodItems(){
         return foodItems;
     }
+
+    // Search Food By Name
+    public FoodItem searchFoodByName(String foodName) {
+
+        for (FoodItem food : foodItems) {
+
+            if (food.getFoodName().equalsIgnoreCase(foodName)) {
+                return food;
+            }
+
+        }
+
+        return null;
+    }
 }

@@ -14,4 +14,11 @@ public class FoodService {
     public ArrayList<FoodItem> getAllFoodItems(){
         return foodRepository.getAllFoodItems();
     }
+
+    // Search Food By Name
+    public FoodItem searchFoodByName(String foodName) {
+
+        return foodRepository.searchFoodByName(foodName);
+
+    }
 }
