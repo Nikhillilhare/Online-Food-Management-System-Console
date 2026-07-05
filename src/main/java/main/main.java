@@ -20,6 +20,7 @@ public class main {
             System.out.println("2. Login");
             System.out.println("3. View Profile");
             System.out.println("4. Display Food Menu");
+            System.out.println("5. Search Food By Name");
             System.out.print("Enter Choice : ");
             choice = sc.nextInt();
             sc.nextLine();
@@ -41,6 +42,9 @@ public class main {
                     break;
                 case 4:
                     foodController.displayAllFoodItems();
+                    break;
+                case 5:
+                    foodController.searchFoodByName(sc);
                     break;
                 default:
                     System.out.println("Invalid Choice");
