@@ -27,20 +27,27 @@ Initially, the application stores data using Java Collections (`ArrayList`). Lat
 OnlineFoodOrderingSystem
 │
 ├── model
-│
+       Customer.java
+│      FoodItem.java│
 ├── controller
-│
+│   CustomerController.java
 ├── service
-│     ├── console
-│     └── db
+│     ├── serviceconsole
+            CustomerService.java
+│           FoodService.java
+│     └── servicedb
 │
 ├── repository
-│     ├── console
-│     └── db
+│     ├── repositoryconsole
+            CustomerRepository.java
+│      │      FoodRepository.java
+│     └── repositorydb
 │
 ├── util
+       Validation.java
 │
 └── main
+    Main.java
 ```
 
 ---
@@ -51,16 +58,13 @@ OnlineFoodOrderingSystem
 Main
    │
    ▼
-AppController
+   Controller
    │
    ▼
-CustomerController
+   Service
    │
    ▼
-CustomerService
-   │
-   ▼
-CustomerRepository
+   Repository
    │
    ▼
 ArrayList
@@ -82,6 +86,8 @@ MySQL Database (JDBC)
 ## Customer Management
 
 * Customer Registration
+* Login using Email and Password
+* View Customer Profile
 * Duplicate Email Check
 * Name Validation
 * Email Validation
@@ -93,9 +99,17 @@ MySQL Database (JDBC)
 
 # ⏳ Features In Progress
 
-* Customer Login
-* View Customer Profile
+### Food Menu
 
+Completed Components
+* FoodItem Model
+* Food Repository
+* Food Service
+
+Upcoming
+- Display All Food Items
+- Search Food By Name
+- Filter Food By Category
 ---
 
 # 📌 Planned Features
@@ -197,8 +211,15 @@ This ensures that every feature is fully tested before moving to the next featur
 
 # 👨‍💻 Author
 
-**Nikhil Lilhare**o
+**Nikhil Lilhare**
 
-## Ignore file
-.gitignore
-pom.xml
+# 📊 Project Progress
+
+| Module              | Status |
+|---------------------|--------|
+| Customer Management | ✅ Completed |
+| Food Menu           | 🔄 In Progress |
+| Order Management    | ⏳ Pending |
+| Billing             | ⏳ Pending |
+| Order History       | ⏳ Pending |
+| JDBC Integration    | ⏳ Pending |
