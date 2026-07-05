@@ -158,8 +158,12 @@ MySQL Database (JDBC)
  ONLINE FOOD ORDERING SYSTEM
 =====================================
 
-1. Register Customer
 0. Exit
+1. Register Customer
+2. Login
+3. View Profile
+
+
 ```
 
 ---
