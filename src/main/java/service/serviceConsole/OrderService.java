@@ -88,4 +88,15 @@ public class OrderService {
         return totalAmount * 0.05;
 
     }
+
+    // Calculate Final Amount
+    public double calculateFinalAmount() {
+
+        double totalAmount = calculateTotalAmount();
+
+        double gst = calculateGST();
+
+        return totalAmount + gst;
+
+    }
 }

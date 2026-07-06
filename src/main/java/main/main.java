@@ -32,6 +32,8 @@ public class main {
             System.out.println("10. View Cart");
             System.out.println("11. Calculate Total Amount");
             System.out.println("12. Apply GST (5%)");
+            System.out.println("13. Generate Final Bill");
+            System.out.println("14. Display Order Summary");
             System.out.print("Enter Choice : ");
             choice = sc.nextInt();
             sc.nextLine();
@@ -75,6 +77,12 @@ public class main {
                     break;
                 case 12:
                     orderController.calculateGST();
+                    break;
+                case 13:
+                    orderController.generateFinalBill();
+                    break;
+                case 14:
+                    orderController.displayOrderSummary();
                     break;
                 default:
                     System.out.println("Invalid Choice");

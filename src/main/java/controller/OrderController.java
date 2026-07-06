@@ -148,4 +148,70 @@ public class OrderController {
         System.out.printf("GST (5%%)     : ₹%.2f%n", gst);
 
     }
+    // Generate Final Bill
+    public void generateFinalBill() {
+
+        double totalAmount = orderService.calculateTotalAmount();
+
+        if (totalAmount == 0) {
+
+            System.out.println("\nCart Is Empty.");
+            return;
+
+        }
+
+        double gst = orderService.calculateGST();
+
+        double finalAmount = orderService.calculateFinalAmount();
+
+        System.out.println("\n============= FINAL BILL =============");
+
+        System.out.printf("Total Amount : ₹%.2f%n", totalAmount);
+        System.out.printf("GST (5%%)     : ₹%.2f%n", gst);
+        System.out.println("--------------------------------------");
+        System.out.printf("Final Amount : ₹%.2f%n", finalAmount);
+
+    }
+
+    // Display Order Summary
+    public void displayOrderSummary() {
+
+        ArrayList<OrderItem> cartItems = orderService.getCartItems();
+
+        if (cartItems.isEmpty()) {
+
+            System.out.println("\nCart Is Empty.");
+            return;
+
+        }
+
+        double totalAmount = orderService.calculateTotalAmount();
+        double gst = orderService.calculateGST();
+        double finalAmount = orderService.calculateFinalAmount();
+
+        System.out.println("\n================ ORDER SUMMARY ================");
+
+        System.out.printf("%-5s %-20s %-10s %-10s %-10s%n",
+                "ID", "Food Name", "Price", "Qty", "Subtotal");
+
+        System.out.println("--------------------------------------------------------------");
+
+        for (OrderItem orderItem : cartItems) {
+
+            System.out.printf("%-5d %-20s ₹%-9.2f %-10d ₹%-10.2f%n",
+                    orderItem.getFoodItem().getFoodId(),
+                    orderItem.getFoodItem().getFoodName(),
+                    orderItem.getFoodItem().getPrice(),
+                    orderItem.getQuantity(),
+                    orderItem.getSubTotal());
+
+        }
+
+        System.out.println("--------------------------------------------------------------");
+
+        System.out.printf("Total Amount : ₹%.2f%n", totalAmount);
+        System.out.printf("GST (5%%)     : ₹%.2f%n", gst);
+        System.out.printf("Final Amount : ₹%.2f%n", finalAmount);
+
+    }
 }

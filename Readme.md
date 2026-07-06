@@ -107,6 +107,20 @@ MySQL Database (JDBC)
 * Display All Food Items
 * Search Food By Name
 * Filter Food By Category
+
+## Order Management
+
+* Add Food To Cart
+* Update Quantity
+* Remove Item
+* View Cart
+
+## Billing
+
+* Calculate Total Amount
+* Apply GST
+* Generate Bill
+* Order Summary
 ---
 
 # ⏳ Features In Progress
@@ -124,19 +138,6 @@ Completed Components
 
 # 📌 Planned Features
 
-### Order Management
-
-* Add Food To Cart
-* Update Quantity
-* Remove Item
-* View Cart
-
-### Billing
-
-* Calculate Total Amount
-* Apply GST
-* Generate Bill
-* Order Summary
 
 ### Order History
 
@@ -182,6 +183,15 @@ Completed Components
 3. View Profile
 4. Display All FoodItems
 5. Search Food By Name
+6. Filter Food By Category
+7. Add Food Item To Cart
+8. Update Item Quantity
+9. Remove Item From Cart
+10. View Cart
+11. Calculate Total Amount
+12. Apply GST (5%)
+13. Generate Final Bill
+ 14. Display Order Summary
 
 ```
 
