@@ -43,4 +43,32 @@ public class OrderRepository {
     public void updateCartItemQuantity(OrderItem orderItem, int quantity) {
         orderItem.setQuantity(orderItem.getQuantity() + quantity);
     }
+
+    // Set Item Quantity
+    public boolean updateItemQuantity(int foodId, int quantity) {
+
+        OrderItem orderItem = findCartItemByFoodId(foodId);
+
+        if (orderItem == null) {
+            return false;
+        }
+
+        orderItem.setQuantity(quantity);
+
+        return true;
+
+    }
+    // Remove Item From Cart
+    public boolean removeItemFromCart(int foodId) {
+
+        OrderItem orderItem = findCartItemByFoodId(foodId);
+
+        if (orderItem == null) {
+            return false;
+        }
+
+        cartItems.remove(orderItem);
+
+        return true;
+    }
 }

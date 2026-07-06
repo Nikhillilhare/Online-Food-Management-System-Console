@@ -28,4 +28,11 @@ public class FoodService {
         return foodRepository.filterFoodByCategory(category);
 
     }
+
+    // Get Food By ID
+    public FoodItem getFoodById(int foodId) {
+
+        return foodRepository.findFoodById(foodId);
+
+    }
 }

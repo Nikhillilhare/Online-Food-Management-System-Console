@@ -3,6 +3,7 @@ package main;
 
 import controller.CustomerController;
 import controller.FoodController;
+import controller.OrderController;
 
 
 import java.util.Scanner;
@@ -10,6 +11,9 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        CustomerController customerController = new CustomerController();
+        FoodController foodController = new FoodController();
+        OrderController orderController = new OrderController();
         int choice;
         do{
             System.out.println("\n========================================");
@@ -22,11 +26,12 @@ public class main {
             System.out.println("4. Display Food Menu");
             System.out.println("5. Search Food By Name");
             System.out.println("6. Filter Food By Category");
+            System.out.println("7. Add Food Item To Cart");
+            System.out.println("8. Update Item Quantity");
+            System.out.println("9. Remove Item From Cart");
             System.out.print("Enter Choice : ");
             choice = sc.nextInt();
             sc.nextLine();
-            CustomerController customerController = new CustomerController();
-            FoodController foodController = new FoodController();
             switch (choice){
                 case 0:
                     System.out.println("Thanks For Visiting");
@@ -49,6 +54,15 @@ public class main {
                     break;
                 case 6:
                     foodController.filterFoodByCategory(sc);
+                    break;
+                case 7:
+                    orderController.addFoodToCart(sc);
+                    break;
+                case 8:
+                    orderController.updateItemQuantity(sc);
+                    break;
+                case 9:
+                    orderController.removeItemFromCart(sc);
                     break;
                 default:
                     System.out.println("Invalid Choice");

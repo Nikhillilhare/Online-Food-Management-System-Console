@@ -56,4 +56,19 @@ public class FoodRepository {
         return filteredFoodItems;
 
     }
+
+    // Find Food By ID
+    public FoodItem findFoodById(int foodId) {
+
+        for (FoodItem food : foodItems) {
+
+            if (food.getFoodId() == foodId) {
+                return food;
+            }
+
+        }
+
+        return null;
+
+    }
 }
