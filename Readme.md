@@ -161,6 +161,14 @@ Tables
 * Database Connection Utility Created
 * Connection Successfully Tested
 
+## 🔄 JDBC Progress
+
+### Customer Module
+
+* JDBC Connection ✅
+* Customer Registration (Database) ✅
+* PreparedStatement Used ✅
+
 
 ### Bonus Features
 
