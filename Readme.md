@@ -28,7 +28,8 @@ OnlineFoodOrderingSystem
 │
 ├── model
        Customer.java
-│      FoodItem.java│
+│      FoodItem.java
+       OrderItem.java 
 ├── controller
 │   CustomerController.java
     FoodController.java
@@ -41,7 +42,8 @@ OnlineFoodOrderingSystem
 ├── repository
 │     ├── repositoryconsole
             CustomerRepository.java
-│      │      FoodRepository.java
+│      │    FoodRepository.java
+            OrderRepository.java
 │     └── repositorydb
 │
 ├── util
