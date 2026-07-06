@@ -31,6 +31,7 @@ public class main {
             System.out.println("9. Remove Item From Cart");
             System.out.println("10. View Cart");
             System.out.println("11. Calculate Total Amount");
+            System.out.println("12. Apply GST (5%)");
             System.out.print("Enter Choice : ");
             choice = sc.nextInt();
             sc.nextLine();
@@ -71,6 +72,9 @@ public class main {
                     break;
                 case 11:
                     orderController.calculateTotalAmount();
+                    break;
+                case 12:
+                    orderController.calculateGST();
                     break;
                 default:
                     System.out.println("Invalid Choice");

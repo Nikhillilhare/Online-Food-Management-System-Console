@@ -127,4 +127,25 @@ public class OrderController {
         System.out.printf("Total Amount : ₹%.2f%n", totalAmount);
 
     }
+
+    // Calculate GST
+    public void calculateGST() {
+
+        double totalAmount = orderService.calculateTotalAmount();
+
+        if (totalAmount == 0) {
+
+            System.out.println("\nCart Is Empty.");
+            return;
+
+        }
+
+        double gst = orderService.calculateGST();
+
+        System.out.println("\n========== GST DETAILS ==========");
+
+        System.out.printf("Total Amount : ₹%.2f%n", totalAmount);
+        System.out.printf("GST (5%%)     : ₹%.2f%n", gst);
+
+    }
 }

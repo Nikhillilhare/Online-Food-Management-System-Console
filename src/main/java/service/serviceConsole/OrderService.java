@@ -79,4 +79,13 @@ public class OrderService {
         return totalAmount;
 
     }
+
+    // Calculate GST (5%)
+    public double calculateGST() {
+
+        double totalAmount = calculateTotalAmount();
+
+        return totalAmount * 0.05;
+
+    }
 }
