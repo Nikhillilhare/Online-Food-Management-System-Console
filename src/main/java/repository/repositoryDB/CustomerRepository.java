@@ -5,6 +5,7 @@ import util.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CustomerRepository {
@@ -40,5 +41,45 @@ public class CustomerRepository {
 
         return false;
 
+    }
+
+    // Login Customer
+    public Customer loginCustomer(String email, String password) {
+
+        String sql = """
+            SELECT *
+            FROM customers
+            WHERE email = ? AND password = ?
+            """;
+
+        try (
+                Connection connection = DBConnection.getConnection();
+                PreparedStatement preparedStatement =
+                        connection.prepareStatement(sql)
+        ) {
+
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+
+                return new Customer(
+                        resultSet.getInt("customer_id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("email"),
+                        resultSet.getString("mobile"),
+                        resultSet.getString("password")
+                );
+
+            }
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        }
+        return null;
     }
 }

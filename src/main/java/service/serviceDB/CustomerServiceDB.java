@@ -19,4 +19,10 @@ public class CustomerServiceDB {
         return customerRepositoryDB.registerCustomer(customer);
 
     }
+    // Login Customer
+    public Customer loginCustomer(String email, String password) {
+
+        return customerRepositoryDB.loginCustomer(email, password);
+
+    }
 }

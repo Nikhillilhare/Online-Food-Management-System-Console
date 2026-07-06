@@ -169,6 +169,11 @@ Tables
 * Customer Registration (Database) ✅
 * PreparedStatement Used ✅
 
+### Customer JDBC Module
+
+* Customer Registration ✅
+* Customer Login ✅
+
 
 ### Bonus Features
 
