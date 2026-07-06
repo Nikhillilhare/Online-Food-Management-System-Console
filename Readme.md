@@ -174,6 +174,12 @@ Tables
 * Customer Registration ✅
 * Customer Login ✅
 
+### Food JDBC Module
+
+* Display All Food Items ✅
+* Search Food By Name ✅
+* Filter Food By Category ✅
+
 
 ### Bonus Features
 
