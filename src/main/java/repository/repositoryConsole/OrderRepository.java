@@ -72,4 +72,11 @@ public class OrderRepository {
 
         return true;
     }
+
+    // Clear Cart
+    public void clearCart() {
+
+        cartItems.clear();
+
+    }
 }

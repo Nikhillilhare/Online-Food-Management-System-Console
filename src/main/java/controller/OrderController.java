@@ -3,6 +3,7 @@ package controller;
 import model.FoodItem;
 import model.OrderItem;
 import service.serviceConsole.FoodService;
+import service.serviceConsole.OrderHistoryService;
 import service.serviceConsole.OrderService;
 
 import java.util.ArrayList;
@@ -11,12 +12,13 @@ import java.util.Scanner;
 public class OrderController {
     private FoodService foodService;
     private OrderService orderService;
+    private OrderHistoryService orderHistoryService;
 
     public OrderController() {
 
         foodService = new FoodService();
         orderService = new OrderService();
-
+        orderHistoryService = new OrderHistoryService();
     }
 
     // Add Food Item To Cart
@@ -163,13 +165,18 @@ public class OrderController {
         double gst = orderService.calculateGST();
 
         double finalAmount = orderService.calculateFinalAmount();
-
+        // Save Order
+        orderHistoryService.createOrder(1, finalAmount);
+        orderService.clearCart();
         System.out.println("\n============= FINAL BILL =============");
 
         System.out.printf("Total Amount : ₹%.2f%n", totalAmount);
         System.out.printf("GST (5%%)     : ₹%.2f%n", gst);
         System.out.println("--------------------------------------");
         System.out.printf("Final Amount : ₹%.2f%n", finalAmount);
+
+        System.out.println("\nOrder Placed Successfully.");
+        System.out.println("Cart Cleared Successfully.");
 
     }
 

@@ -30,17 +30,19 @@ OnlineFoodOrderingSystem
        Customer.java
 │      FoodItem.java
        OrderItem.java 
+       Order.java
 ├── controller
 │   CustomerController.java
     FoodController.java
     OrderController.java
+    OrderHistoryController.java
     
 ├── service
 │     ├── serviceconsole
             CustomerService.java
 │           FoodService.java
             OrderService.java
-          
+            OrderHistoryService.java            
 │     └── servicedb
 │
 ├── repository
@@ -48,6 +50,7 @@ OnlineFoodOrderingSystem
             CustomerRepository.java
 │      │    FoodRepository.java
             OrderRepository.java
+            OrderHistoryRepository.java
 │     └── repositorydb
 │
 ├── util
@@ -192,6 +195,8 @@ Completed Components
 12. Apply GST (5%)
 13. Generate Final Bill
  14. Display Order Summary
+ 15. View Previous Orders
+ 16. Search Order By Order ID
 
 ```
 
@@ -234,7 +239,7 @@ This ensures that every feature is fully tested before moving to the next featur
 |---------------------|--------|
 | Customer Management | ✅ Completed |
 | Food Menu           | ✅ Completed |
-| Order Management    | ⏳ Pending |
-| Billing             | ⏳ Pending |
+| Order Management    | ✅ Completed |
+| Billing             | ✅ Completed |
 | Order History       | ⏳ Pending |
 | JDBC Integration    | ⏳ Pending |

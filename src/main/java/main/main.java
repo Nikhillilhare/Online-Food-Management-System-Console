@@ -4,6 +4,7 @@ package main;
 import controller.CustomerController;
 import controller.FoodController;
 import controller.OrderController;
+import controller.OrderHistoryController;
 
 
 import java.util.Scanner;
@@ -14,6 +15,8 @@ public class main {
         CustomerController customerController = new CustomerController();
         FoodController foodController = new FoodController();
         OrderController orderController = new OrderController();
+        OrderHistoryController orderHistoryController =
+                new OrderHistoryController();
         int choice;
         do{
             System.out.println("\n========================================");
@@ -34,6 +37,8 @@ public class main {
             System.out.println("12. Apply GST (5%)");
             System.out.println("13. Generate Final Bill");
             System.out.println("14. Display Order Summary");
+            System.out.println("15. View Previous Orders");
+            System.out.println("16. Search Order By Order ID");
             System.out.print("Enter Choice : ");
             choice = sc.nextInt();
             sc.nextLine();
@@ -83,6 +88,12 @@ public class main {
                     break;
                 case 14:
                     orderController.displayOrderSummary();
+                    break;
+                case 15:
+                    orderHistoryController.viewPreviousOrders();
+                    break;
+                case 16:
+                    orderHistoryController.searchOrderById(sc);
                     break;
                 default:
                     System.out.println("Invalid Choice");

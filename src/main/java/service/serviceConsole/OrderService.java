@@ -99,4 +99,10 @@ public class OrderService {
         return totalAmount + gst;
 
     }
+    // Clear Cart
+    public void clearCart() {
+
+        orderRepository.clearCart();
+
+    }
 }
