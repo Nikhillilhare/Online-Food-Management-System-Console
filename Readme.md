@@ -152,6 +152,20 @@ Completed Components
 * MySQL
 * JDBC
 
+## 🗄 Database
+
+Database Name
+
+food_ordering_system
+
+Tables
+
+* customers
+* food_items
+* orders
+* order_items
+
+
 ### Bonus Features
 
 * Admin Panel
