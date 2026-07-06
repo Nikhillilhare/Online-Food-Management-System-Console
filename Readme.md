@@ -55,6 +55,7 @@ OnlineFoodOrderingSystem
 │
 ├── util
        Validation.java
+       DBConnection.java
 │
 └── main
     Main.java
@@ -124,9 +125,12 @@ MySQL Database (JDBC)
 * Apply GST
 * Generate Bill
 * Order Summary
----
 
-# ⏳ Features In Progress
+## Order History
+
+* View Order History
+* Search Order By ID
+---
 
 ### Food Menu
 
@@ -136,21 +140,6 @@ Completed Components
 * Food Service
 * Food Controller
 
-
----
-
-# 📌 Planned Features
-
-
-### Order History
-
-* View Order History
-* Search Order By ID
-
-### Database Integration
-
-* MySQL
-* JDBC
 
 ## 🗄 Database
 
@@ -164,6 +153,13 @@ Tables
 * food_items
 * orders
 * order_items
+
+
+## 🔌 JDBC Connection
+
+* MySQL Connector Added
+* Database Connection Utility Created
+* Connection Successfully Tested
 
 
 ### Bonus Features
