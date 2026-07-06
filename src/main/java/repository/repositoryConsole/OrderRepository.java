@@ -5,11 +5,13 @@ import model.OrderItem;
 import java.util.ArrayList;
 
 public class OrderRepository {
-    private ArrayList<OrderItem> cartItems;
+    private static ArrayList<OrderItem> cartItems;
 
     public OrderRepository() {
 
-        cartItems = new ArrayList<>();
+        if (cartItems == null){
+            cartItems = new ArrayList<>();
+        }
 
     }
 
@@ -22,7 +24,6 @@ public class OrderRepository {
 
     // Return Cart Items
     public ArrayList<OrderItem> getCartItems() {
-
         return cartItems;
 
     }

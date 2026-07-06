@@ -4,6 +4,8 @@ import model.FoodItem;
 import model.OrderItem;
 import repository.repositoryConsole.OrderRepository;
 
+import java.util.ArrayList;
+
 public class OrderService {
     private OrderRepository orderRepository;
 
@@ -36,6 +38,7 @@ public class OrderService {
                 orderRepository.updateItemQuantity(foodId, quantity);
 
         if (updated) {
+
             return "Item Quantity Updated Successfully.";
         }
 
@@ -53,5 +56,27 @@ public class OrderService {
         }
 
         return "Food Item Not Found In Cart.";
+    }
+
+    // View Cart
+    public ArrayList<OrderItem> getCartItems() {
+
+        return orderRepository.getCartItems();
+
+    }
+
+    // Calculate Total Amount
+    public double calculateTotalAmount() {
+
+        double totalAmount = 0;
+
+        for (OrderItem orderItem : orderRepository.getCartItems()) {
+
+            totalAmount += orderItem.getSubTotal();
+
+        }
+
+        return totalAmount;
+
     }
 }

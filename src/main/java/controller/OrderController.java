@@ -1,9 +1,11 @@
 package controller;
 
 import model.FoodItem;
+import model.OrderItem;
 import service.serviceConsole.FoodService;
 import service.serviceConsole.OrderService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OrderController {
@@ -77,4 +79,52 @@ public class OrderController {
 
     }
 
+    // View Cart
+    public void viewCart() {
+
+        ArrayList<OrderItem> cartItems =
+                orderService.getCartItems();
+
+        if (cartItems.isEmpty()) {
+
+            System.out.println("\nCart Is Empty.");
+
+            return;
+
+        }
+
+        System.out.println("\n====================== YOUR CART ======================");
+
+        System.out.printf("%-8s %-20s %-10s %-10s %-12s%n",
+                "ID", "Food Name", "Price", "Quantity", "Subtotal");
+
+        System.out.println("--------------------------------------------------------------");
+
+        for (OrderItem orderItem : cartItems) {
+
+            System.out.printf("%-8d %-20s ₹%-9.2f %-10d ₹%-10.2f%n",
+                    orderItem.getFoodItem().getFoodId(),
+                    orderItem.getFoodItem().getFoodName(),
+                    orderItem.getFoodItem().getPrice(),
+                    orderItem.getQuantity(),
+                    orderItem.getSubTotal());
+
+        }
+    }
+    // Calculate Total Amount
+    public void calculateTotalAmount() {
+
+        double totalAmount = orderService.calculateTotalAmount();
+
+        if (totalAmount == 0) {
+
+            System.out.println("\nCart Is Empty.");
+            return;
+
+        }
+
+        System.out.println("\n========== BILL SUMMARY ==========");
+        System.out.printf("Total Amount : ₹%.2f%n", totalAmount);
+
+    }
 }

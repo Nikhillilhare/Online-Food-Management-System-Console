@@ -29,6 +29,8 @@ public class main {
             System.out.println("7. Add Food Item To Cart");
             System.out.println("8. Update Item Quantity");
             System.out.println("9. Remove Item From Cart");
+            System.out.println("10. View Cart");
+            System.out.println("11. Calculate Total Amount");
             System.out.print("Enter Choice : ");
             choice = sc.nextInt();
             sc.nextLine();
@@ -63,6 +65,12 @@ public class main {
                     break;
                 case 9:
                     orderController.removeItemFromCart(sc);
+                    break;
+                case 10:
+                    orderController.viewCart();
+                    break;
+                case 11:
+                    orderController.calculateTotalAmount();
                     break;
                 default:
                     System.out.println("Invalid Choice");
