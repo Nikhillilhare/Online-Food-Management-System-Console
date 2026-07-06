@@ -241,5 +241,5 @@ This ensures that every feature is fully tested before moving to the next featur
 | Food Menu           | ✅ Completed |
 | Order Management    | ✅ Completed |
 | Billing             | ✅ Completed |
-| Order History       | ⏳ Pending |
+| Order History       | ✅ Completed  |
 | JDBC Integration    | ⏳ Pending |
