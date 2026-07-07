@@ -310,8 +310,8 @@ Edit `DBConnection.java`
 
 ```java
 URL
-USERNAME
-PASSWORD
+USERNAME,
+PASSWORD;
 ```
 
 ### Run Project
@@ -365,6 +365,7 @@ View Previous Orders
 Add screenshots of:
 
 * Home Menu
+* ![img.png](HomePage.png)
 * Customer Registration
 * Customer Login
 * Food Menu
