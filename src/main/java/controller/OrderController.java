@@ -1,11 +1,15 @@
 package controller;
 
+import model.Customer;
 import model.FoodItem;
+import model.Order;
 import model.OrderItem;
 import service.serviceConsole.FoodService;
 import service.serviceConsole.OrderHistoryService;
 import service.serviceConsole.OrderService;
+import service.serviceDB.OrderServiceDB;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,12 +17,33 @@ public class OrderController {
     private FoodService foodService;
     private OrderService orderService;
     private OrderHistoryService orderHistoryService;
+    private CustomerController customerController;
+    private OrderServiceDB orderServiceDB;
 
+    //Constructor
     public OrderController() {
 
         foodService = new FoodService();
         orderService = new OrderService();
         orderHistoryService = new OrderHistoryService();
+        customerController = new CustomerController();
+        orderServiceDB = new OrderServiceDB();
+    }
+
+
+
+    public OrderController(CustomerController customerController){
+
+        this.customerController = customerController;
+
+        foodService = new FoodService();
+
+        orderService = new OrderService();
+
+        orderHistoryService = new OrderHistoryService();
+        orderServiceDB = new OrderServiceDB();
+
+
     }
 
     // Add Food Item To Cart
@@ -156,18 +181,57 @@ public class OrderController {
         double totalAmount = orderService.calculateTotalAmount();
 
         if (totalAmount == 0) {
-
             System.out.println("\nCart Is Empty.");
             return;
-
         }
 
         double gst = orderService.calculateGST();
 
         double finalAmount = orderService.calculateFinalAmount();
-        // Save Order
+        // Save Order in Console
         orderHistoryService.createOrder(1, finalAmount);
-        orderService.clearCart();
+
+
+        // Save Order In Database
+        Customer customer = customerController.getLoggedCustomer();
+        if (customer == null) {
+            System.out.println("\nPlease Login First.");
+            return;
+        }
+
+        Order order = new Order(
+                0,
+                customer.getCustomerId(),
+                LocalDate.now(),
+                finalAmount
+        );
+
+        int orderId = orderServiceDB.saveOrder(order);
+
+        if (orderId == -1) {
+
+            System.out.println("\nOrder Saving Failed.");
+
+            return;
+
+        }
+        ArrayList<OrderItem> cartItems = orderService.getCartItems();
+
+        for (OrderItem item : cartItems) {
+
+//            orderServiceDB.saveOrderItem(orderId, item);
+
+            boolean saved = orderServiceDB.saveOrderItem(orderId, item);
+
+            if (!saved) {
+
+                System.out.println("Failed To Save Order Item : "
+                        + item.getFoodItem().getFoodName());
+
+            }
+        }
+
+
         System.out.println("\n============= FINAL BILL =============");
 
         System.out.printf("Total Amount : ₹%.2f%n", totalAmount);
@@ -176,6 +240,8 @@ public class OrderController {
         System.out.printf("Final Amount : ₹%.2f%n", finalAmount);
 
         System.out.println("\nOrder Placed Successfully.");
+        // Clear Cart
+        orderService.clearCart();
         System.out.println("Cart Cleared Successfully.");
 
     }

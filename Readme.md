@@ -16,8 +16,10 @@ Initially, the application stores data using Java Collections (`ArrayList`). Lat
 * Java Collections (ArrayList)
 * OOP Concepts
 * Exception Handling
-* MySQL (Upcoming)
-* JDBC (Upcoming)
+* MySQL 
+* JDBC
+* IntelliJ IDEA
+* Git & GitHub
 
 ---
 
@@ -44,7 +46,9 @@ OnlineFoodOrderingSystem
             OrderService.java
             OrderHistoryService.java            
 │     └── servicedb
-│
+│           CustomerServiceDB.java
+            FoodServiceDB.java
+            OrderServiceDB.java
 ├── repository
 │     ├── repositoryconsole
             CustomerRepository.java
@@ -52,7 +56,9 @@ OnlineFoodOrderingSystem
             OrderRepository.java
             OrderHistoryRepository.java
 │     └── repositorydb
-│
+│           CustomerRepository.java
+            FoodRepositoryDB.java
+            OrderRepositoryDB.java
 ├── util
        Validation.java
        DBConnection.java
@@ -81,8 +87,6 @@ Main
 ArrayList
 ```
 
-Later
-
 ```text
 ArrayList
      │
@@ -92,7 +96,7 @@ MySQL Database (JDBC)
 
 ---
 
-# ✅ Features Completed
+# ✅ Features
 
 ## Customer Management
 
@@ -155,6 +159,67 @@ Tables
 * order_items
 
 
+## 💾 Database (JDBC)
+
+* Customer Registration
+* Customer Login
+* Save Orders
+* Save Order Items
+* View Previous Orders
+* Search Orders
+
+---
+
+# 🗄 Database Tables
+
+## customers
+
+| Column      | Type    |
+| ----------- | ------- |
+| customer_id | INT     |
+| name        | VARCHAR |
+| email       | VARCHAR |
+| mobile      | VARCHAR |
+| password    | VARCHAR |
+
+---
+
+## food_items
+
+| Column    | Type    |
+| --------- | ------- |
+| food_id   | INT     |
+| food_name | VARCHAR |
+| category  | VARCHAR |
+| price     | DOUBLE  |
+| available | BOOLEAN |
+
+---
+
+## orders
+
+| Column       | Type   |
+| ------------ | ------ |
+| order_id     | INT    |
+| customer_id  | INT    |
+| order_date   | DATE   |
+| total_amount | DOUBLE |
+
+---
+
+## order_items
+
+| Column        | Type   |
+| ------------- | ------ |
+| order_item_id | INT    |
+| order_id      | INT    |
+| food_id       | INT    |
+| quantity      | INT    |
+| subtotal      | DOUBLE |
+
+---
+
+
 ## 🔌 JDBC Connection
 
 * MySQL Connector Added
@@ -180,16 +245,6 @@ Tables
 * Search Food By Name ✅
 * Filter Food By Category ✅
 
-
-### Bonus Features
-
-* Admin Panel
-* Discount Coupon
-* Print Bill to Text File
-* Sort Menu By Price
-* Top Selling Food Items
-
----
 
 # 🎯 OOP Concepts Used
 
@@ -233,10 +288,122 @@ Tables
 
 # ⚙ How to Run
 
-1. Clone or download the project.
-2. Open the project in IntelliJ IDEA.
-3. Set Java SDK 17 or above.
-4. Run `Main.java`.
+### Clone Repository
+
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_LINK>
+```
+
+### Open Project
+
+Open the project using **IntelliJ IDEA**.
+
+### Configure Database
+
+* Install MySQL
+* Create Database
+* Execute **FoodOrderingSystem.sql**
+
+### Update Database Credentials
+
+Edit `DBConnection.java`
+
+```java
+URL
+USERNAME
+PASSWORD
+```
+
+### Run Project
+
+Execute:
+
+```text
+main.java
+```
+
+---
+
+# 🧪 Sample Workflow
+
+```text
+Register Customer
+
+↓
+
+Login
+
+↓
+
+Display Food Menu
+
+↓
+
+Add Food To Cart
+
+↓
+
+View Cart
+
+↓
+
+Generate Final Bill
+
+↓
+
+Order Saved In MySQL
+
+↓
+
+View Previous Orders
+```
+
+---
+
+# 📸 Screenshots
+
+Add screenshots of:
+
+* Home Menu
+* Customer Registration
+* Customer Login
+* Food Menu
+* Cart
+* Final Bill
+* Order Summary
+* Previous Orders
+* MySQL Customers Table
+* MySQL Orders Table
+* MySQL Order Items Table
+
+---
+
+# 🚀 Future Enhancements
+
+* Admin Panel
+* Discount Coupons
+* Payment Gateway
+* Print Bill to PDF
+* File Logging
+* GUI Version
+* Web Application
+* Mobile Application
+
+---
+
+# 📚 Learning Outcomes
+
+This project helped in understanding:
+
+* Java Programming
+* Object-Oriented Programming
+* Layered Architecture
+* Collections Framework
+* Exception Handling
+* JDBC
+* MySQL
+* Git & GitHub
+* Clean Code Practices
 
 ---
 
@@ -258,9 +425,29 @@ This ensures that every feature is fully tested before moving to the next featur
 
 ---
 
+# 📦 Deliverables
+
+* Java Source Code
+* MySQL SQL Script
+* README.md
+* GitHub Repository
+* Screenshots
+
 # 👨‍💻 Author
 
 **Nikhil Lilhare**
+
+Java Full Stack Developer
+
+GitHub Repository:
+
+**https://github.com/Nikhillilhare/Online-Food-Management-System-Console**
+
+---
+
+# ⭐ Version
+
+**Version : 1.0**
 
 # 📊 Project Progress
 
@@ -271,4 +458,34 @@ This ensures that every feature is fully tested before moving to the next featur
 | Order Management    | ✅ Completed |
 | Billing             | ✅ Completed |
 | Order History       | ✅ Completed  |
-| JDBC Integration    | ⏳ Pending |
+| JDBC Integration    | ✅ Completed |
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 👨‍💻 Author
+
+**Nikhil Lilhare**
+
+Java Full Stack Developer
+
+GitHub Repository:
+
+**https://github.com/Nikhillilhare/Online-Food-Management-System-Console**
+
+---
+
+# ⭐ Version
+
+**Version : 1.0**
+
+**Status : Completed ✅**

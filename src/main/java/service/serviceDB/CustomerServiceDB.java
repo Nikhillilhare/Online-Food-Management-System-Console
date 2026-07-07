@@ -25,4 +25,14 @@ public class CustomerServiceDB {
         return customerRepositoryDB.loginCustomer(email, password);
 
     }
+    // View Profile
+    public Customer getCustomerByEmail(String email) {
+
+        return customerRepositoryDB.getCustomerByEmail(email);
+    }
+
+    // Check Email Exists
+    public boolean isEmailExists(String email){
+        return customerRepositoryDB.isEmailExists(email);
+    }
 }

@@ -14,7 +14,7 @@ public class main {
         Scanner sc = new Scanner(System.in);
         CustomerController customerController = new CustomerController();
         FoodController foodController = new FoodController();
-        OrderController orderController = new OrderController();
+        OrderController orderController = new OrderController(customerController);
         OrderHistoryController orderHistoryController =
                 new OrderHistoryController();
         int choice;
@@ -35,8 +35,8 @@ public class main {
             System.out.println("10. View Cart");
             System.out.println("11. Calculate Total Amount");
             System.out.println("12. Apply GST (5%)");
-            System.out.println("13. Generate Final Bill");
-            System.out.println("14. Display Order Summary");
+            System.out.println("13. Display Order Summary");
+            System.out.println("14. Generate Final Bill");
             System.out.println("15. View Previous Orders");
             System.out.println("16. Search Order By Order ID");
             System.out.print("Enter Choice : ");
@@ -84,10 +84,10 @@ public class main {
                     orderController.calculateGST();
                     break;
                 case 13:
-                    orderController.generateFinalBill();
+                    orderController.displayOrderSummary();
                     break;
                 case 14:
-                    orderController.displayOrderSummary();
+                    orderController.generateFinalBill();
                     break;
                 case 15:
                     orderHistoryController.viewPreviousOrders();

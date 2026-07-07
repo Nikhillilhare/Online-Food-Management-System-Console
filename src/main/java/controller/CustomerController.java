@@ -2,17 +2,25 @@ package controller;
 
 import model.Customer;
 import service.serviceConsole.CustomerService;
+import service.serviceDB.CustomerServiceDB;
 import util.Validation;
 
 import java.util.Scanner;
 
 public class CustomerController {
     private CustomerService customerService;
+    private CustomerServiceDB customerServiceDB;
     private Customer loggedCustomer;
     public CustomerController(){
         customerService = new CustomerService();
-    }
+        customerServiceDB = new CustomerServiceDB();
 
+    }
+    public Customer getLoggedCustomer(){
+
+        return loggedCustomer;
+
+    }
     public void registerCustomer(Scanner sc){
         String name;
         do {
@@ -31,7 +39,12 @@ public class CustomerController {
                 System.out.println("Invalid Email!");
             }
         }while (!Validation.isValidEmail(email));
+        if (customerServiceDB.isEmailExists(email)) {
 
+            System.out.println("Email Already Registered.");
+            return;
+
+        }
         String mobile;
         do {
             System.out.print("Enter Mobile: ");
@@ -50,8 +63,19 @@ public class CustomerController {
             }
         }while (!Validation.isValidPassword(password));
 
+        //This is for Console Application
         String register = customerService.registerCustomer(name,email,mobile,password);
         System.out.println(register);
+        //This is for Database Version
+        Customer customer = new Customer(0, name, email, mobile, password);
+
+        boolean saved = customerServiceDB.registerCustomer(customer);
+
+        if (saved) {
+            System.out.println("Customer Saved In Database Successfully.");
+        } else {
+            System.out.println("Failed To Save Customer In Database.");
+        }
     }
 
     public void loginCustomer(Scanner sc){
@@ -73,11 +97,25 @@ public class CustomerController {
            }
        }while (!Validation.isValidPassword(password));
 
+       //This is for Console Application
         String customer = customerService.loginCustomer(email,password);
         if (customer !=null){
-            System.out.println("Login Successful!");
+            System.out.println("Login Successful! In Console");
         }else{
-            System.out.println("Something Wrong Email or Password");
+            System.out.println("Something Wrong Email or Password In Console");
+        }
+        //This is for Database Version
+        loggedCustomer =
+                customerServiceDB.loginCustomer(email, password);
+
+        if (loggedCustomer != null) {
+
+            System.out.println("Login Successful! In DB");
+
+        } else {
+
+            System.out.println("Invalid Email Or Password. In DB");
+
         }
 
     }

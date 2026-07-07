@@ -88,24 +88,17 @@ public class FoodRepositoryDB {
 
     // Filter Food By Category
     public ArrayList<FoodItem> filterFoodByCategory(String category) {
-
         ArrayList<FoodItem> foodItems = new ArrayList<>();
-
         String sql =
                 "SELECT * FROM food_items WHERE category = ?";
-
         try (
                 Connection connection = DBConnection.getConnection();
                 PreparedStatement preparedStatement =
                         connection.prepareStatement(sql)
         ) {
-
             preparedStatement.setString(1, category);
-
             ResultSet resultSet = preparedStatement.executeQuery();
-
             while (resultSet.next()) {
-
                 FoodItem foodItem = new FoodItem(
                         resultSet.getInt("food_id"),
                         resultSet.getString("food_name"),
@@ -113,18 +106,44 @@ public class FoodRepositoryDB {
                         resultSet.getDouble("price"),
                         resultSet.getBoolean("available")
                 );
-
                 foodItems.add(foodItem);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return foodItems;
+    }
+    // Get Food By ID
+    public FoodItem getFoodById(int foodId) {
+
+        String sql = "SELECT * FROM food_items WHERE food_id = ?";
+
+        try (
+                Connection connection = DBConnection.getConnection();
+                PreparedStatement preparedStatement =
+                        connection.prepareStatement(sql)
+        ) {
+
+            preparedStatement.setInt(1, foodId);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+
+                return new FoodItem(
+                        resultSet.getInt("food_id"),
+                        resultSet.getString("food_name"),
+                        resultSet.getString("category"),
+                        resultSet.getDouble("price"),
+                        resultSet.getBoolean("available")
+                );
 
             }
 
         } catch (SQLException e) {
-
             e.printStackTrace();
-
         }
 
-        return foodItems;
-
+        return null;
     }
 }

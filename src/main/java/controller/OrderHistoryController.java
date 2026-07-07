@@ -2,25 +2,29 @@ package controller;
 
 import model.Order;
 import service.serviceConsole.OrderHistoryService;
+import service.serviceDB.OrderServiceDB;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OrderHistoryController {
-
+    //For Console
     private OrderHistoryService orderHistoryService;
-
+    //For Database
+    private OrderServiceDB orderServiceDB;
     public OrderHistoryController() {
 
         orderHistoryService = new OrderHistoryService();
-
+        orderServiceDB = new OrderServiceDB();
     }
 
     // View Previous Orders
     public void viewPreviousOrders() {
+        //For Console
+       // ArrayList<Order> orders = orderHistoryService.getAllOrders();
 
-        ArrayList<Order> orders = orderHistoryService.getAllOrders();
-
+        //For Database
+        ArrayList<Order> orders = orderServiceDB.getAllOrders();
         if (orders.isEmpty()) {
 
             System.out.println("\nNo Previous Orders Found.");
@@ -53,8 +57,11 @@ public class OrderHistoryController {
         int orderId = sc.nextInt();
         sc.nextLine();
 
-        Order order = orderHistoryService.searchOrderById(orderId);
+        //For Console
+//        Order order = orderHistoryService.searchOrderById(orderId);
 
+          //For Database
+        Order order = orderServiceDB.searchOrderById(orderId);
         if (order == null) {
 
             System.out.println("\nOrder Not Found.");
