@@ -367,15 +367,25 @@ Add screenshots of:
 * Home Menu
 * ![img.png](HomePage.png)
 * Customer Registration
+* ![img.png](CustomerRegistration.png)
 * Customer Login
+* ![img.png](CustomerLogin.png)
 * Food Menu
+* ![img.png](FoodMenu.png)
 * Cart
+* ![img.png](Cart.png)
 * Final Bill
+* ![img.png](FinalBill.png)
 * Order Summary
+* ![img.png](OrderSummary.png)
 * Previous Orders
+* ![img.png](PreviousOrders.png)
 * MySQL Customers Table
+* ![img.png](CustomerTable.png)
 * MySQL Orders Table
+* ![img.png](OrdersTable.png)
 * MySQL Order Items Table
+* ![img.png](OrderItemTable.png)
 
 ---
 
